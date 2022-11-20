@@ -197,7 +197,15 @@ calib3d = {
     ],
 }
 
-white_list = makeWhiteList([core, imgproc, objdetect, video, dnn, features2d, photo, aruco, calib3d])
+img_hash = {
+    '': [
+        'img_hash_pHash',
+    ],
+    'img_hash_ImgHashBase': ['compute', 'compare'],
+    'img_hash_PHash': ['create'],
+}
+
+white_list = makeWhiteList([core, imgproc, objdetect, video, dnn, features2d, photo, aruco, calib3d, img_hash])
 
 # namespace_prefix_override['dnn'] = ''  # compatibility stuff (enabled by default)
 # namespace_prefix_override['aruco'] = ''  # compatibility stuff (enabled by default)

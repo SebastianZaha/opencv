@@ -736,6 +736,13 @@ class JSWrapperGenerator(object):
                     print()
 
     def gen(self, dst_file, src_files, core_bindings):
+        # https://github.com/opencv/opencv_contrib/issues/2598#issuecomment-1218028703
+        # step 0: sort headers
+        filenameOrder = ['img_hash_base.hpp', 'average_hash.hpp', 'block_mean_hash.hpp', 'color_moment_hash.hpp', 'marr_hildreth_hash.hpp', 'phash.hpp', 'radial_variance_hash.hpp']
+        for filename in filenameOrder:
+            index = next(i for i, v in enumerate(src_files) if v.endswith(filename))
+            src_files.append(src_files.pop(index))
+
         # step 1: scan the headers and extract classes, enums and functions
         headers = []
         for hdr in src_files:

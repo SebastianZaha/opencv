@@ -89,6 +89,7 @@ using namespace cv;
 
 using namespace cv::segmentation;  // FIXIT
 
+using namespace cv::img_hash;
 #ifdef HAVE_OPENCV_DNN
 using namespace cv::dnn;
 #endif
